@@ -136,17 +136,7 @@ end
 
 
  
-for i in ipairs({tostring(gg),tostring(os),tostring(io),tostring(debug),tostring(math),tostring(table)}) do
-    if string.match(({tostring(gg),tostring(os),tostring(io),tostring(debug),tostring(math),tostring(table)})[i], "@") then
-      gg.alert("HOOK PA TANGINAMO")
-      while true do
-           return gg.alert("PAKYU MADERPAKER") 
-        end      
-        while true do
-           return gg.searchNumber(C)        
-        end
-    end
-end
+
 
 
 
