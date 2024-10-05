@@ -1,0 +1,672 @@
+local function checkKey(Menu, Passwords)
+    local A = false
+    for _, I in pairs(Passwords) do
+        if Menu[1] == I then
+            A = true
+            break
+        end
+    end
+    return A
+end
+
+
+local function convertTo24Hour(time12)
+    local hour, min, sec, period = time12:match("(%d+):(%d+):(%d+) (%a+)")
+    hour = tonumber(hour)
+    min = tonumber(min)
+    sec = tonumber(sec)
+    
+    if period == "PM" and hour ~= 12 then
+        hour = hour + 12
+    elseif period == "AM" and hour == 12 then
+        hour = 0
+    end
+    
+    return hour, min, sec
+end
+
+-- Function to calculate remaining time
+local function calculateRemainingTime(expDate, expTime)
+    -- Split date and time
+    local year, month, day = expDate:match("(%d+)-(%d+)-(%d+)")
+    local hour, min, sec = convertTo24Hour(expTime)
+
+    -- Convert to numbers and create time table
+    local expTimeTable = {
+        year = tonumber(year),
+        month = tonumber(month),
+        day = tonumber(day),
+        hour = hour,
+        min = min,
+        sec = sec
+    }
+
+    -- Get current time and expiration time
+    local expTime = os.time(expTimeTable)
+    local currentTime = os.time()
+
+    -- Calculate remaining time
+    local remainingTime = expTime - currentTime
+
+    if remainingTime <= 0 then
+        return "EXPIRED"
+    else
+        local days = math.floor(remainingTime / (24 * 3600))
+        local hours = math.floor((remainingTime % (24 * 3600)) / 3600)
+        local minutes = math.floor((remainingTime % 3600) / 60)
+        local seconds = remainingTime % 60
+
+        return string.format("Remaining Time: %d days, %d hours, %d minutes, %d seconds", days, hours, minutes, seconds)
+    end
+end
+
+-- Main script
+local Passwords = {
+    {key = "freescript", expirationDate = "2024-10-20", expirationTime = "09:50:59 PM"},
+    {key = "tester", expirationDate = "2024-10-8", expirationTime = "03:15:00 PM"}
+}
+
+local Menu = gg.prompt({"KEY: "}, nil, {"text"})
+if not Menu then return end
+
+local keyValid = false
+local expirationInfo
+
+for _, pwd in pairs(Passwords) do
+    if Menu[1] == pwd.key then
+        keyValid = true
+        expirationInfo = calculateRemainingTime(pwd.expirationDate, pwd.expirationTime)
+        break
+    end
+end
+
+if not keyValid then
+    gg.alert("WRONG PASSWORD!")
+    return
+else
+    if expirationInfo == "EXPIRED" then
+        gg.alert("ᴇxᴘɪʀᴇᴅ")
+        -- Uncomment the following line to simulate opening a URL in a Lua-compatible way
+        -- os.execute('am start -a android.intent.action.VIEW -d "https://t.me/BrixMODZCHANNEL"')
+        os.exit()
+    else
+        gg.alert("" .. expirationInfo)
+    end
+end
+
+
+
+
+
+function setValues(address, flags, value) gg.setValues({[1] = {address = address, flags = flags, value = value}}) end
+
+
+local g = {}
+g.last = gg.getFile()
+g.DATA = loadfile(g.last)
+
+if g.DATA then
+    
+    local info = debug.getinfo(2, 'S')
+    if info and info.source then
+        local caller_path = info.source:sub(2)  
+
+        local success, err = os.remove(g.last)
+        if success then
+            
+        else
+            
+        end 
+    end
+
+    local ppb = g.last:match("[^/]+$")
+    local ppi = "lohhhggg"
+
+    os.rename(g.last, g.last:gsub('/[^/]+$', '') .. '/' .. ppi)
+    local new_file_path = g.last:gsub('/[^/]+$', '') .. '/' .. ppi
+  local prt = loadfile(new_file_path)
+
+    if prt then
+        os.rename(new_file_path, g.last:gsub('/[^/]+$', '') .. '/' .. ppb)
+    end
+else
+    print("Error")
+end  
+
+
+
+ 
+for i in ipairs({tostring(gg),tostring(os),tostring(io),tostring(debug),tostring(math),tostring(table)}) do
+    if string.match(({tostring(gg),tostring(os),tostring(io),tostring(debug),tostring(math),tostring(table)})[i], "@") then
+      gg.alert("HOOK PA TANGINAMO")
+      while true do
+           return gg.alert("PAKYU MADERPAKER") 
+        end      
+        while true do
+           return gg.searchNumber(C)        
+        end
+    end
+end
+
+
+
+ 
+if gg.isPackageInstalled("com.guoshi.httpcanary") then
+gg.alert("remove http canary from your device")
+os.exit()
+end
+
+if gg.isPackageInstalled("com.packagesniffer.frtparlak") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("com.rhmsoft.edit") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("app.greyshirts.sslcapture") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("frtparlak.rootsniffer") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("com.minhui.wifianalyzer") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("jp.co.taosoftware.android.packetcapture") then
+  print("uninstall o Packet Capture")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("com.prabalgaming.logger") then
+  print("uninstall your logger gg to Run Script")
+  os.exit()
+else
+end
+if gg.isPackageInstalled("any_.body_.can_.fuck_.tencent_") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.s.fyojrme") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.rjvsbmhdspmnfbame") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.redwolfgaming.ripgg") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.vrexqfftfsxekm.kl") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.nochqxpucsbldqqx") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.ghueczxrttlhgd") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.yy.qptvrjwerw.ghoex") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.nochqxpucsbldqqx") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.pvt4u") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.Egypt.yuosseef") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.tssfjipkmrco") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.vip.paidhacksonly.mr.toxin") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.ioyysvgfsrig") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.mrteamz.id") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.jtbodgpqxox") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.eidymumcghpfeeeavps") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.mod.iraq") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.dzelttwyuyyes") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.sxqa") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.xyyxgxfn") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.zgb") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.tssfjipkmrco") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.vnpqk") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.mwjvnwesbghkxbjznbwo") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.blackduty.gc") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.s.fyojrme") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.roxmemek") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.fhshwhpvqvruvjtu") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.fireongaming.fog") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.paranoiaworks.unicus.android.sse") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.raincitygaming.ggmod") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.pvt4u") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.nydpvsb.z.r.pkgh") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.ioyysvgfsrig") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.gmsm") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.sudsjcqvvcmgutdjeg") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.redwolfgaming.ripgg") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.coolfoolggfuckscript.tm") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.eidymumcghpfeeeavps") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.dzelttwyuyyes") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.foxcyber.gg") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.sxqa") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("com.zgb") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("catch_.me_.if_.you_.can_") then
+  print("uninstall ur Decrypt GG")
+  os.exit()
+end
+if gg.isPackageInstalled("sstool.only.com.sstool") then
+  print("Uninstall SSTOOL Deceypt")
+  os.exit()
+end
+if gg.isPackageInstalled("sstool.only.com.sstool") then
+  print("Uninstall SSTOOL Deceypt")
+  os.exit()
+end
+
+
+
+
+
+
+
+
+ 
+if gg.isPackageInstalled("com.hckeam.mjgql") then print("⛔ 𝙿𝙻𝙴𝙰𝚂𝙴 𝚄𝙽𝙸𝙽𝚂𝚃𝙰𝙻𝙻 𝙳𝙴𝙲𝚁𝚈𝙿𝚃 𝙶𝙶 𝙼𝙾𝙳 ⛔") os.exit() end
+ 
+if gg.isPackageInstalled("com.rakesh.yt") then print("⛔ 𝙿𝙻𝙴𝙰𝚂𝙴 𝚄𝙽𝙸𝙽𝚂𝚃𝙰𝙻𝙻 𝙳𝙴𝙲𝚁𝚈𝙿𝚃 𝙶𝙶 𝙼𝙾𝙳 ⛔") os.exit() end
+ 
+if gg.isPackageInstalled("com.hckeam.mjgql") then print("⛔ 𝙿𝙻𝙴𝙰𝚂𝙴 𝚄𝙽𝙸𝙽𝚂𝚃𝙰𝙻𝙻 𝙳𝙴𝙲𝚁𝚈𝙿𝚃 𝙶𝙶 𝙼𝙾𝙳 ⛔") os.exit() end
+ 
+if gg.isPackageInstalled("com.wtkc.gg") then print("⛔ 𝙿𝙻𝙴𝙰𝚂𝙴 𝚄𝙽𝙸𝙽𝚂𝚃𝙰𝙻𝙻 𝙳𝙴𝙲𝚁𝚈𝙿𝚃 𝙶𝙶 𝙼𝙾𝙳 ⛔") os.exit() end
+ 
+if gg.isPackageInstalled("com.guoshi.httpcanary")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+ 
+if gg.isPackageInstalled("sstool.only.com.sstool")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+ 
+if gg.isPackageInstalled("com.fnmods.sstool")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+if gg.isPackageInstalled("com.guoshi.httpcanary")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+if gg.isPackageInstalled("com.guoshi.httpcanary.premium")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+if gg.isPackageInstalled("sstool.only.com.sstool")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+if gg.isPackageInstalled("com.sstoolvip.by.Zylern")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+if gg.isPackageInstalled("com.eltechs.es")then gg.alert("⛔ 𝙳𝙴𝙻𝙴𝚃𝙴 𝙷𝚃𝚃𝙿𝙲𝙰𝙽𝙰𝚁𝚈 𝙰𝙿𝙿 𝙵𝚁𝙾𝙼 𝚈𝙾𝚄𝚁 𝙳𝙴𝚅𝙸𝙲𝙴 ⛔ ") os.exit() end
+ 
+local org = gg.searchNumber 
+local hook = function(...) 
+    gg.setVisible(false) 
+    local ret = org(...) 
+    if gg.isVisible() then 
+        while true do 
+            gg.clearResults() 
+            gg.clearList() 
+            gg.processKill() 
+            os.exit() 
+        end 
+    end 
+end 
+ 
+if gg.PACKAGE ~= "COM.NXPVT.GG" then 
+    -- Removed the return ___EX() call as it was causing an error.
+end 
+ 
+if gg.isPackageInstalled("COM.NXPVT.GG") then 
+    gg.alert("THREAT DETECTED", "", "", "") 
+    print("PLEASE, DELETE THREAT") 
+    os.exit() 
+end 
+ 
+if gg.isPackageInstalled("GG.WTCS.LOG") then 
+    gg.alert("THREAT DETECTED", "", "", "") 
+    print("PLEASE, DELETE THREAT") 
+    os.exit() 
+end 
+ 
+if gg.isPackageInstalled("IO.NEOTERM") then 
+    gg.alert("NEOTERM DETECTED", "", "", "") 
+    print("PLEASE, DELETE NEOTERM") 
+    os.exit() 
+end 
+ 
+if gg.isPackageInstalled("SSTOOL.ONLY.COM.SSTOOL") then 
+    gg.alert("SSTOOL DETECTED", "", "", "") 
+    print("PLEASE, DELETE SSTOOL") 
+    os.exit() 
+end 
+ 
+if gg.isPackageInstalled("CATCH_.ME_.IF_.YOU_.CAN_") then 
+    print("UNINSTALL YOUR DECRYPT GG") 
+    os.exit() 
+end 
+ 
+if gg.isPackageInstalled("sstool.only.com.sstool") then
+gg.alert("ALIS KA DITO SABI NI CINCO")
+os.exit()
+end
+ 
+for iii,iii in pairs({
+ "com.hckeam.mjgql",
+ "fucklog.by.decbydbc",
+ "com.smile.ggmods",
+ "com.qq.xXxLogger",
+ "com.pepsi.up",
+ "com.kaoygxapp",
+ "com.ioclxgpsiyps.ikfbqe",
+ "com.guoshi.httpcanary.premium",
+ "com.froze.logger",
+ "com.froze.konzlet7.logger"
+}) do
+ if gg.PACKAGE == iii or gg.PACKAGE:find(iii) ~= nil or gg.EXT_FILES_DIR:find(iii) ~= nil or gg.FILES_DIR:find(iii) ~= nil then
+    repeat
+          gg.sleep(0)
+           os.exit()
+             until false
+  return (nil)(nil)
+ end
+end 
+ 
+ 
+function czk(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast('Results '..#data..' Edited') local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else return false end else return false end end gg.toast("")
+function SearchWrite(Search, Write, Type) gg.clearResults() gg.setVisible(false) gg.searchNumber(Search[1][1], Type) local count = gg.getResultCount() local result = gg.getResults(count) gg.clearResults() local data = {} local base = Search[1][2] if (count > 0) then for i, v in ipairs(result) do v.isUseful = true end for k=2, #Search do local tmp = {} local offset = Search[k][2] - base local num = Search[k][1] for i, v in ipairs(result) do tmp[#tmp+1] = {} tmp[#tmp].address = v.address + offset tmp[#tmp].flags = v.flags end tmp = gg.getValues(tmp) for i, v in ipairs(tmp) do if ( tostring(v.value) ~= tostring(num) ) then result[i].isUseful = false end end end for i, v in ipairs(result) do if (v.isUseful) then data[#data+1] = v.address end end if (#data > 0) then gg.toast('ᴠᴀʟᴜᴇ ғᴏᴜɴᴅ '..#data..' ᴇᴅɪᴛᴇᴅ✅') local t = {} local base = Search[1][2] for i=1, #data do for k, w in ipairs(Write) do offset = w[2] - base t[#t+1] = {} t[#t].address = data[i] + offset t[#t].flags = Type t[#t].value = w[1] if (w[3] == true) then local item = {} item[#item+1] = t[#t] item[#item].freeze = true gg.addListItems(item) end end end gg.setValues(t) else gg.alert('ᴠᴀʟᴜᴇ ɴᴏᴛ ғᴏᴜɴᴅ ᴛʀʏ ᴀɢᴀɪɴ!') return false end else gg.alert('ᴠᴀʟᴜᴇ ɴᴏᴛ ғᴏᴜɴᴅ ᴛʀʏ ᴀɢᴀɪɴ!') return false end end
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .." Failed") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. "\nFound: "..xxx.." Edited: " .. xgsl .. "") else gg.toast(qmnb[2]["name"] .. " Failed") end end end gg.clearResults()  end
+function setvalue(address,flags,value) local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+ 
+function PS() end
+function setvalue(address,flags,value) PS('Modify address value (address, numeric type, value to be modified)') local tt={} tt[1]={} tt[1].address=address tt[1].flags=flags tt[1].value=value gg.setValues(tt) end
+ 
+ function setValues(address, flags, value) gg.setValues({[1] = {address = address, flags = flags, value = value}}) end
+ 
+local HexPatches = {}
+function HexPatches.CINCO(Lib,Offset,Edit,Type)
+local Ranges = gg.getRangesList(Lib)
+local v = {}
+v[1] = {}
+v[1].address = Ranges[1].start + Offset
+v[1].flags = Type
+v[1].value = Edit.."r"
+v[1].freeze = true
+gg.setValues(v)
+end
+ 
+function split(szFullString, szSeparator) local nFindStartIndex = 1 local nSplitIndex = 1 local nSplitArray = {} while true do local nFindLastIndex = string.find(szFullString, szSeparator, nFindStartIndex) if not nFindLastIndex then nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, string.len(szFullString)) break end nSplitArray[nSplitIndex] = string.sub(szFullString, nFindStartIndex, nFindLastIndex - 1) nFindStartIndex = nFindLastIndex + string.len(szSeparator) nSplitIndex = nSplitIndex + 1 end return nSplitArray end function xgxc(szpy, qmxg) for x = 1, #(qmxg) do xgpy = szpy + qmxg[x]["offset"] xglx = qmxg[x]["type"] xgsz = qmxg[x]["value"] xgdj = qmxg[x]["freeze"] if xgdj == nil or xgdj == "" then gg.setValues({[1] = {address = xgpy, flags = xglx, value = xgsz}}) else gg.addListItems({[1] = {address = xgpy, flags = xglx, freeze = xgdj, value = xgsz}}) end xgsl = xgsl + 1 xgjg = true end end function xqmnb(qmnb) gg.clearResults() gg.setVisible(false) gg.setRanges(qmnb[1]["memory"]) gg.searchNumber(qmnb[3]["value"], qmnb[3]["type"]) if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) gg.refineNumber(qmnb[3]["value"], qmnb[3]["type"]) xxx=gg.getResultCount() if gg.getResultCount() == 0 then gg.toast(qmnb[2]["name"] .. " Failed") else sl = gg.getResults(999999) sz = gg.getResultCount() xgsl = 0 if sz > 999999 then sz = 999999 end for i = 1, sz do pdsz = true for v = 4, #(qmnb) do if pdsz == true then pysz = {} pysz[1] = {} pysz[1].address = sl[i].address + qmnb[v]["offset"] pysz[1].flags = qmnb[v]["type"] szpy = gg.getValues(pysz) pdpd = qmnb[v]["lv"] .. ";" .. szpy[1].value szpd = split(pdpd, ";") tzszpd = szpd[1] pyszpd = szpd[2] if tzszpd == pyszpd then pdjg = true pdsz = true else pdjg = false pdsz = false end end end if pdjg == true then szpy = sl[i].address xgxc(szpy, qmxg) end end if xgjg == true then gg.toast(qmnb[2]["name"] .. "\nFound: "..xxx.." Edited: " .. xgsl .. "") else gg.toast(qmnb[2]["name"] .. " Failed") end end end gg.clearResults()  end
+ 
+function setvalue(address, flags, value)
+    local tt = {}
+    tt[1] = {}
+    tt[1].address = address
+    tt[1].flags = flags
+    tt[1].value = value
+    gg.setValues(tt)
+end
+ 
+function setvalue(address, value, comment)
+    gg.setValues({[address] = value})
+end
+ 
+CINCO = 1
+ 
+function home()
+q = gg.choice({
+"ʙʏᴘᴀss ᴍᴇɴᴜ",
+"ғᴇᴀᴛᴜʀᴇs ᴍᴇɴᴜ",
+"ᴇxɪᴛ sᴄʀɪᴘᴛ",
+}, nil,"ᴄɪɴᴄᴏ ғʀᴇᴇ sᴄʀɪᴘᴛ ɢᴀʀᴇɴᴀ")
+if q == nil then else
+if q == 1 then A1() end
+if q == 2 then A2() end
+if q == 3 then EXIT() end
+end
+CINCO = -1
+end
+ 
+function A1() 
+w = gg.multiChoice({
+"ʙʏᴘᴀss [ᴀғᴛᴇʀ ʟᴏɢɪɴ]",
+"ʙᴀᴄᴋ",
+}, nil,"ᴄɪɴᴄᴏ ғʀᴇᴇ ɢᴀʀᴇɴᴀ sᴄʀɪᴘᴛ")
+if w == nil then else
+if w[1] == true then x() end
+if w[2] == true then home() end
+end
+end
+ 
+
+function x()
+HexPatches.CINCO("libunity.so", 0x3ACDEE8, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libunity.so", 0x9A6E700, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libunity.so", 0x9A6E73C, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libunity.so", 0x3ACDEF0, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF51E4, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5278, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5330, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5354, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5494, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF54BC, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF54FC, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5548, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0xF5574, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0x12F560, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0x175040, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0x1757F0, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0x175F8C, "hC0 03 5F D6", 4);
+HexPatches.CINCO("libanogs.so", 0x175FA8, "hC0 03 5F D6", 4);
+gg.toast("ʙʏᴘᴀss ᴏɴ")
+end
+
+ 
+
+function A2() 
+e = gg.prompt({
+"ᴀɪᴍʙᴏᴛ [ɪɴ-ɢᴀᴍᴇ]",
+"ʀᴇᴅ ʟɪɴᴇ [ɪɴ-ɢᴀᴍᴇ]",
+"ʜɪᴛʙᴏx [ɪɴ-ɢᴀᴍᴇ]",
+"ғᴘs ʙᴏᴏsᴛᴇʀ [ɪɴ-ɢᴀᴍᴇ]",
+"ᴇxɪᴛ",
+}, nil, {
+    "checkbox",
+    "checkbox",
+    "checkbox",
+    "checkbox",
+    "checkbox",
+    })
+if e == nil then else
+if e[1] == true then aim2() end
+if e[2] == true then rel() end
+if e[3] == true then bla() end
+if e[4] == true then fps() end
+if e[5] == true then home() end
+end
+end
+ 
+ 
+ 
+ function aim2()
+function setMemoryValue(address,flags,value)gg.setValues({{address=address,flags=flags,value=value}})end
+function applyPatch(library,offset,edit,type)local ranges=gg.getRangesList(library)if #ranges>0 then setMemoryValue(ranges[1].start+offset,type,edit)else print("Library not found!")end end
+function setValues(address,flags,value)setMemoryValue(address,flags,value)end
+aimbot = gg.prompt({"ᴀɪᴍ ʟᴏᴄᴋ ᴀᴅᴊᴜsᴛ sᴇᴛᴛɪɴɢs [1; 100]"}, nil, {"number"})
+il2cpp = gg.getRangesList("libunity.so")[1].start
+setValues(il2cpp + 0x6E83478, 4, "~A8 LDR S0, [PC,#0x8]")
+setValues(il2cpp + 0x6E83478 + 0x4, 4, "~A8 RET")
+setValues(il2cpp + 0x6E83478 + 0x8, 16, aimbot[1])
+gg.toast("ᴀᴄᴛɪᴠᴀᴛᴇ ᴀɪᴍʙᴏᴛ")
+end
+
+
+function rel()
+gg.setRanges(gg.REGION_C_ALLOC | gg.REGION_OTHER)
+gg.setVisible(false)
+gg.searchNumber("h 00 00 80 40 00 00 80 3F 00 00 80 3F 00 00 00 00 00 00 00 00 00 00 40 40", gg.TYPE_BYTE, false, gg.SIGN_EQUAL, 0, -1)
+local results = gg.getResults(20)
+gg.editAll("h 00 00 48 42 00 00 80 3F 00 00 96 43 00 00 00 00 00 00 00 00 00 00 40 40", gg.TYPE_BYTE)
+gg.clearResults()
+gg.toast("ʀᴇᴅ ʟɪɴᴇ ᴏɴ")
+end
+ 
+function fps()
+so = gg.getRangesList('libunity.so')[1].start
+py = 0x6F446A0
+setValues(so + py, 32, "h002480D2C0035FD6")
+so = gg.getRangesList('libunity.so')[1].start
+py = 0x6F442EC
+setValues(so + py, 32, "hC00080D2C0035FD6")
+gg.toast("ᴀᴄᴛɪᴠᴀᴛᴇᴅ ғʀᴀᴍᴇʀᴀᴛᴇ")
+end
+
+function bla()
+gg.setRanges(gg.REGION_ANONYMOUS)
+
+-- Search for the float value
+gg.searchNumber("0.18500000238", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+
+-- Get results
+local results = gg.getResults(1000)
+
+-- Debugging: Check if results were found
+if #results == 0 then
+    gg.alert("No results found for the value.")
+    return
+end
+
+-- Debugging: Show number of results found
+gg.alert("Found " .. #results .. " results.")
+
+-- Edit all results with the new value
+gg.editAll("1.18500000238", gg.TYPE_FLOAT)
+
+-- Clear results
+gg.clearResults()
+
+-- Show a toast message
+gg.toast("ʜɪᴛʙᴏx ᴏɴ")
+end
+
+
+function EXIT()
+gg.alert(("ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ ᴍʏ sᴄʀɪᴘᴛ"))
+os.exit() 
+end
+
+while true do
+if gg.isVisible(true) then
+CINCO = 1
+gg.setVisible(false) end
+if CINCO == 1 then
+home() 
+end
+end
